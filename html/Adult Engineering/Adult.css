@@ -1,0 +1,17 @@
+body{
+    
+background-color: bisque;
+background-image:url(a1.jpg);
+background-size: cover;
+background-position: right;
+    
+    
+    
+}
+a span:nth-child(1){
+    background-color:darkslateblue;
+}
+
+a span:nth-child(2){
+    background-color:cadetblue;
+}

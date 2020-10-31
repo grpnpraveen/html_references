@@ -1,0 +1,133 @@
+
+
+PASS-2016
+10Jun#111
+
+.isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+
+
+       //step 1:finding data in passport Table
+            PreparedStatement prs=connection.prepareStatement("select passportNumber from pvms.pvms_applypassport where userid=?");
+            prs.setString(1,indexbean.getUserid());
+            ResultSet resu=prs.executeQuery();
+            
+            
+            if(resu.next()==false)
+            {
+            //getting passportNum
+            indexbean.setUseridInApplyPassport(null);
+            System.out.println(prs);
+            }
+            else
+            {
+            	 passportNum=resu.getString("passportNumber");	
+            }
+            
+            //step 2:finding data in visa Table
+            PreparedStatement ps=connection.prepareStatement("select visaNumber from pvms.pvms_applyvisa where userid=?");
+            ps.setString(1,indexbean.getUserid());
+            ResultSet res=ps.executeQuery();
+            
+            if(res.next()==false)
+            {
+            //getting visaNum
+            
+            indexbean.setUseridInApplyVisa(null);
+            System.out.println(ps);
+            }
+            else
+            {
+            	visaNum=res.getString("passportNumber");
+            }
+
+
+
+
+
+
+
+
+***********************************
+
+
+if(indexbean.useridPrefix(userid).equals("PASS"))
+					{
+						System.out.println("PASS in side");
+							if(indexbean.getUseridInApplyPassport().equals(null))
+							{
+								session.setAttribute("access", "Applypass");
+								
+							}
+							else 
+							{
+								session.setAttribute("access", "PassReissue");
+								
+							}
+				   }
+					else 
+					{
+						System.out.println("VISA in side");
+
+							if(indexbean.getUseridInApplyVisa().equals(null) && indexbean.getUseridInApplyPassport().equals(null))
+							{
+								session.setAttribute("access", "ApplypassforVisa");
+								
+							}
+							else if(indexbean.getUseridInApplyVisa().equals(null))
+							{
+								session.setAttribute("access", "ApplyVisa");
+								
+							}	
+							else
+							{
+								session.setAttribute("access", "VisaCancel");
+								
+							}
+					}
+
+
+
+
+********************************************************
+
+
+  <c:if test = "${access=='Applypass'}">  
+  <a href="PVMS_PassportApply.jsp"  >Apply Passport</a><br/>
+  <a href="PVMS_PassportReissue.jsp" class="disable" >Passport Re-issue</a><br/>
+  <a href="PVMS_VisaApply.jsp" class="disable" >Apply Visa</a><br/>
+  <a href="PVMS_VisaCancellation.jsp" class="disable" >Visa Cancellation</a>
+  </c:if>
+  
+  <c:if test = "${access=='PassReissue'}"> 
+  <a href="PVMS_PassportApply.jsp" class="link">Apply Passport</a><br/>
+  <a href="PVMS_PassportReissue.jsp" class="link">Passport Re-issue</a><br/>
+  <a href="PVMS_VisaApply.jsp" class="link">Apply Visa</a><br/>
+  <a href="PVMS_VisaCancellation.jsp" class="link">Visa Cancellation</a>
+  </c:if>
+  
+  <c:if test = "${access=='ApplypassforVisa'}">   
+  <a href="PVMS_PassportApply.jsp" class="link">Apply Passport</a><br/>
+  <a href="PVMS_PassportReissue.jsp" class="link">Passport Re-issue</a><br/>
+  <a href="PVMS_VisaApply.jsp" class="link">Apply Visa</a><br/>
+  <a href="PVMS_VisaCancellation.jsp" class="link">Visa Cancellation</a>
+  </c:if>
+  
+  <c:if test = "${access=='ApplyVisa'}"> 
+  <a href="PVMS_PassportApply.jsp" class="link">Apply Passport</a><br/>
+  <a href="PVMS_PassportReissue.jsp" class="link">Passport Re-issue</a><br/>
+  <a href="PVMS_VisaApply.jsp" class="link">Apply Visa</a><br/>
+  <a href="PVMS_VisaCancellation.jsp" class="link">Visa Cancellation</a>
+  </c:if>
+  
+  <c:if test = "${access=='VisaCancel'}"> 
+  <a href="PVMS_PassportApply.jsp" class="link">Apply Passport</a><br/>
+  <a href="PVMS_PassportReissue.jsp" class="link">Passport Re-issue</a><br/>
+  <a href="PVMS_VisaApply.jsp" class="link">Apply Visa</a><br/>
+  <a href="PVMS_VisaCancellation.jsp" class="link">Visa Cancellation</a>
+  </c:if>

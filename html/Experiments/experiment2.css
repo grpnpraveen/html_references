@@ -1,0 +1,42 @@
+body{
+    background-image: linear-gradient(red,yellow);
+   height:100vh;
+}
+
+.first{
+
+display:inline-block;
+    font-variant: small-caps;
+    margin:200px;
+    margin-left:500px;
+     border-radius:50px;
+    color:azure;
+    font-size:30px;
+    
+    padding:150px;
+    background-image:url(IMG_20200128_235721.JPG);
+    background-size:cover;
+     transition-property: height,transform,border-radius;
+    transition-duration:0.5s ;
+    transition-timing-function: linear;
+    transition-delay:1s ;
+ 
+}
+
+
+.first:hover{
+    -moz-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    transform:rotate(360deg);
+    opacity:0.8;
+    background-color: darkkhaki;
+    
+    height:100px;
+    width:100px;
+    border-radius:600px;
+    
+    
+    
+    
+}

@@ -1,0 +1,75 @@
+.first{
+    font-variant:small-caps;
+    background-color: aqua;
+    display: inline-block;
+    margin:10px;
+    width:40px;
+    padding:80px; 
+    
+    transition-property: height,transform,border-radius;
+    transition-duration:0.5s ;
+    transition-timing-function: linear;
+    transition-delay:0.3s ;
+   
+    
+    
+}
+.first:hover{
+    border-radius:50px
+}
+.first:hover{
+    -moz-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    transform:rotate(360deg);
+    opacity:0.6;
+    background-color: darkkhaki;
+    
+    height:67px;
+    
+    
+    
+    
+}
+.second{
+
+color:black;
+    font-variant: small-caps;
+display: inline-block;
+    background-color: chartreuse;
+    margin:10px;
+    width:40px;
+    padding:80px;
+     transition-property: height,transform,border-radius;
+    transition-duration:0.5s ;
+    transition-timing-function: linear;
+    transition-delay:0.3s ;
+   
+
+}
+.second:hover{
+    color:azure;
+    background-color:cadetblue;
+    border-radius:50px;
+}
+.third{
+
+color:chartreuse;
+    font-variant: small-caps;
+display: inline-block;
+    background-color: darkblue;
+    margin:10px;
+    width:40px;
+    padding:80px;
+     
+   
+
+}
+
+
+.third:hover{
+    color:azure;
+    background-color:cadetblue;
+    border-radius:50px;
+}
+

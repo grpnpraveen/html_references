@@ -1,0 +1,18 @@
+.hello{
+
+
+background:skyblue;
+background:-moz-linear-gradient(top,skyblue 0%,black);
+background:-webkit-linear-gradient(top,skyblue 0%,black);
+background:-ms-linear-gradient(top,skyblue 0%,black);
+background:-o-linear-gradient(top,skyblue 0%,black);
+       
+width:367px;
+    height:220px;
+    
+    border:inset aqua;
+    color:white;
+ float:right;
+    border-radius: 33px;
+
+}
